@@ -3,7 +3,8 @@ from pydeezer.constants import track_formats
 
 
 def download_album(album_name):
-    arl = "cf9134857a1ccdf2d081bef2f1c69cf54446ee1869ffa0cbf6182577f2b1ff9bf45fbd5721bcadf7456dc3b357354a2475abed97cfde0111934e74ecb0f0841d4c24e55e69a8977617bfa40c29f0df5f0c48bc1a73fb5c90e6afd38d6a05bc4a "
+    # you can obtain an arl by login into your deezer account and using developer tools to check cookies
+    arl = ""
     deezer = Deezer(arl=arl)
     user_info = deezer.user
 
@@ -15,7 +16,7 @@ def download_album(album_name):
     data = track['data']
     number_tracks = album['nb_tracks']
     title = album['title']
-    download_dir = "/music1/" + title
+    download_dir = "Your Dir" + title
     track_list = []
     x = 0
 
@@ -31,4 +32,4 @@ def download_album(album_name):
         y += 1
 
 
-download_album("Detroit 2")
+
