@@ -1,5 +1,6 @@
 from pydeezer import Deezer
 from pydeezer.constants import track_formats
+from twilio.rest import Client
 
 
 def download_album(album_name):
@@ -30,6 +31,17 @@ def download_album(album_name):
         song = deezer.get_track(track_list[y])
         song["download"](download_dir, quality=track_formats.MP3_320)
         y += 1
+   def twilio():
+        client = Client(account_sid, auth_token)
+
+        client.api.account.messages.create(
+            to='phone number',
+            from_='phone number from twilio',
+            body=f'A user just downloaded {album_title} by ' + artist
+        )
+
+    twilio()
+    
 def download_playlist(playlist_name):
     search_results = deezer.search_playlists(playlist_name, limit=5)
     playlist_id = search_results[0]['id']
